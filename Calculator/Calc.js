@@ -13,7 +13,6 @@ window.onload = function(){
       case "5":
       case "6":
       case "7":
-        asdfl;kjasdfoijasdofi
       case "8":
       case "9":
         if (display.innerHTML === "0" || display.innerHTML.includes("+") ||display.innerHTML.includes("-")||display.innerHTML.includes("*")||display.innerHTML.includes("/")){
