@@ -1,0 +1,73 @@
+.weightOutput{
+  position: relative;
+  padding: 10px;
+  background: lightblue;
+  width: 200px;
+  text-align: center;
+  font-size: 20px;
+  border: 2px solid black;
+  left: 150px;
+}
+
+.distanceOutput{
+  position: relative;
+  padding: 10px;
+  background: lightblue;
+  width: 200px;
+  text-align: center;
+  font-size: 20px;
+  border: 2px solid black;
+  left: 150px;
+}
+
+body {
+  font-family: arial;
+  margin: 0;
+  background-color: #eee;
+}
+
+h1 {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.Weight,
+.Distance{
+  position: flex;
+  left: 5px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.Distance {
+
+  top: 300px;
+}
+
+.animate {
+  animation: submit 1s both linear;
+}
+
+button{
+  border: 0;
+  padding: 10px;
+  border: 2px solid black;
+  height: 40px;
+  background: #4dc3ff;
+  font-size: 20px;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+  line-height: 0px;
+  background: -webkit-linear-gradient(top, lightgrey 0%, grey 100%);
+
+}
+
+button:hover {
+  background: grey;
+
+}
+
+@keyframes submit{
+  0%{ left: -10px }
+  50%{ left: 180px }
+  100%{ left: 150px }
+}
