@@ -53,7 +53,7 @@ h1 {
 }
 
 .animate {
-  animation: submit 1s both linear;
+  animation: submit .5s both;
 }
 
 button{

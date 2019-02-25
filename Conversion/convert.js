@@ -117,7 +117,7 @@ distanceButton.addEventListener('click', function(e){
         case "Meters":
           distanceOutput.innerHTML = ((distanceInput.value) / 3.281).toFixed(2) + " m";
           break;
-        case "CentiMeters":
+        case "Centimeters":
           distanceOutput.innerHTML = ((distanceInput.value) * 30.48).toFixed(2) + " cm";
           break;
         case "Kilometers":
