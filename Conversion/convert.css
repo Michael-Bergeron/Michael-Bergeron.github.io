@@ -1,3 +1,4 @@
+
 .weightOutput{
   position: relative;
   padding: 10px;
@@ -21,8 +22,10 @@
 }
 
 body {
+  background-image: url("lines.png");
   font-family: arial;
-  margin: 0;
+  margin: 5px;
+  padding: 5px;
   background-color: #eee;
 }
 
@@ -31,17 +34,22 @@ h1 {
   text-align: center;
 }
 
-.Weight,
-.Distance{
+.Conversions{
   position: flex;
   left: 5px;
   padding: 10px;
-  border: 1px solid black;
+  background: white;
+  background-image: url("lines.png");
+  max-width: 700px;
 }
 
-.Distance {
-
-  top: 300px;
+.Weight,
+.Distance{
+  background: #fff;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
 }
 
 .animate {
@@ -57,13 +65,27 @@ button{
   font-size: 20px;
   box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
   line-height: 0px;
-  background: -webkit-linear-gradient(top, lightgrey 0%, grey 100%);
+  background: -webkit-linear-gradient(top, AliceBlue 0%, lightblue 100%);
+}
 
+input, select{
+  height: 20px;
+  position: relative;
+  border: 2px solid #cdcdcd;
+  border-color: rgba(0, 0, 0, .14);
+  background-color: AliceBlue;
+  font-size: 14px;
+}
+
+.inputUnit,
+.distanceInputUnit,
+.outputUnit,
+.distanceOutputUnit {
+  height: 25px;
 }
 
 button:hover {
-  background: grey;
-
+  background: lightblue;
 }
 
 @keyframes submit{
