@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="maps.css">
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <title></title>
@@ -15,8 +17,16 @@
       style: 'mapbox://styles/mapbox/streets-v11'
       });
       </script>
-  </body>
-  <script type="text/javascript" src="maps.js"></script>
+      <script type="text/javascript" src="maps.js"></script>
 
-  </script>
+    <div class="ISSButton">ISS Tracker
+      <label class="switch">
+        <input type="checkbox" class="ISSTracker" unchecked>
+        <span class="slider round"></span>
+      </label>
+
+    </div>
+  </body>
+
+
 </html>

@@ -1,5 +1,8 @@
+window.onload = function(){
 var idIc = 1;
 var boxId = 0;
+var ISSTracker = document.querySelector(".ISSTracker");
+var intervalISS = setInterval(trackISS, 3000);
 
 map.loadImage('img/iss.png', function(error, image) {
   if (error) throw error; map.addImage('iss', image)});
@@ -7,7 +10,18 @@ map.loadImage('img/iss.png', function(error, image) {
 map.loadImage('img/black.png', function(error1, image1) {
   if (error1) throw error1; map.addImage('box', image1)});
 
-setInterval(function() {
+ISSTracker.addEventListener("click", graphedISS)
+
+function graphedISS() {if (ISSTracker.checked){
+  intervalISS;
+}
+else{
+  clearInterval(intervalISS);
+  map.removeLayer(idIc.toString());
+}
+}
+
+function trackISS(){
   if (idIc > 1){
     map.removeLayer(idIc.toString());
   }
@@ -21,7 +35,7 @@ setInterval(function() {
       updateBox(issData.iss_position.longitude, issData.iss_position.latitude);
       updateLocation(issData.iss_position.longitude, issData.iss_position.latitude);
     });
-}, 3000);
+}
 
 function updateLocation(long, lat) {
       map.addLayer({
@@ -58,3 +72,4 @@ function updateLocation(long, lat) {
         }
       });
     };
+}
