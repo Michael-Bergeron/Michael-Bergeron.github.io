@@ -6,7 +6,6 @@ window.onload = function(){
   var inputUnit = document.querySelector('.inputUnit');
   var outputUnit = document.querySelector('.outputUnit');
 
-
   weightButton.addEventListener('click', function(e){
     if (inputUnit.value === outputUnit.value){
       weightOutput.innerHTML = (weightInput.value + " " +inputUnit.value);
