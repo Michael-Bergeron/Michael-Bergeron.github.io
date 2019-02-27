@@ -58,9 +58,20 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-.ISSButton {
+.ISSButton,{
   width: 400px;
   background: lightblue;
   text-align: left;
   font-size: 26px;
+}
+
+.spacePeople{
+  background: #eee;
+  width: 400px;
+  margin: 2px;
+  border: 2px solid black;
+}
+
+#people {
+  font-size: 20px;
 }

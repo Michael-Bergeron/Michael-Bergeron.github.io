@@ -1,6 +1,6 @@
 window.onload = function(){
-var idIc = 1;
-var boxId = 0;
+var idIc = 0;
+var boxId = 1;
 var ISSTracker = document.querySelector(".ISSTracker");
 var intervalISS = setInterval(trackISS, 3000);
 
@@ -18,15 +18,18 @@ function graphedISS() {if (ISSTracker.checked){
 else{
   clearInterval(intervalISS);
   map.removeLayer(idIc.toString());
+  for (let k = 1; k<= boxId; k++){
+    map.removeLayer(k.toString());
+  }
 }
 }
 
 function trackISS(){
-  if (idIc > 1){
+  if (idIc < 0){
     map.removeLayer(idIc.toString());
   }
-  idIc++;
-  boxId--;
+  idIc--;
+  boxId++;
   fetch('http://api.open-notify.org/iss-now.json')
     .then(function(response) {
       return response.json();
@@ -73,3 +76,16 @@ function updateLocation(long, lat) {
       });
     };
 }
+var ul = document.getElementById("people");
+
+fetch('http://api.open-notify.org/astros.json')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(spaceData) {
+    for (let m = 0; m < spaceData.people.length; m++){
+      var li = document.createElement("li");
+      li.innerHTML = spaceData.people[m].name;
+      ul.appendChild(li);
+    }
+  });
