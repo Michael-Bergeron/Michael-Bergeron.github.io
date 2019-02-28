@@ -76,7 +76,9 @@ function updateLocation(long, lat) {
       });
     };
 }
+
 var ul = document.getElementById("people");
+var numberInSpace = document.getElementById("numberInSpace");
 
 fetch('http://api.open-notify.org/astros.json')
   .then(function(response) {
@@ -88,4 +90,5 @@ fetch('http://api.open-notify.org/astros.json')
       li.innerHTML = spaceData.people[m].name;
       ul.appendChild(li);
     }
+    numberInSpace.innerHTML += spaceData.number;
   });
