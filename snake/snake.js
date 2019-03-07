@@ -11,6 +11,7 @@
   var score = 0;
   var total = 4;
   var mode = ""
+  var gameContinue = 0;
 
   var snake;
 
@@ -41,13 +42,8 @@
 
      if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
        if (document.getElementById('walls').checked){
-         score = 0;
-         scoreUpdate.innerHTML = 'Score: ' + score;
-         this.x = 100;
-         this.y = 100;
-         this.xSpeed = scale;
-         this.ySpeed = 0;
-         this.tail = [ {x: 70, y: 100}, {x: 80, y: 100}, {x: 90, y: 100}, {x: 100, y: 100}];
+         gameContinue = 0;
+         return null;
        }
      }
      if (this.x >= canvas.width && document.getElementById('noWalls').checked){
@@ -64,13 +60,9 @@
      }
      for (let m = 0; m<this.tail.length; m++){
        if (this.x === this.tail[m].x && this.y === this.tail[m].y){
-         score = 0;
-         scoreUpdate.innerHTML = 'Score: ' + score;
-         this.x = 100;
-         this.y = 100;
-         this.xSpeed = scale;
-         this.ySpeed = 0;
-         this.tail = [ {x: 70, y: 100}, {x: 80, y: 100}, {x: 90, y: 100}, {x: 100, y: 100}];
+         gameContinue = 0;
+         break;
+         return null;
        }
      }
      if (snake.x == apple.x && snake.y == apple.y){
@@ -78,9 +70,7 @@
        apple.draw();
        score += scoreIncrease;
        scoreUpdate.innerHTML = 'Score: ' + score;
-       speed = speed / 2;
        total++;
-       console.log(speed)
      }
    }
 
@@ -113,21 +103,34 @@
      speed = 100;
      scoreIncrease = 2;
    }
+   if (document.getElementById('walls').checked){
+     scoreIncrease++;
+   }
    snake = new Snake();
    apple = new Apple();
    apple.location();
 
-   setInterval(() => {
+   var snakeInterval = setInterval(function(){
      ctx.clearRect(0, 0, canvas.width, canvas.height);
      apple.draw();
      snake.update();
-     snake.draw();
-
-   }, speed)
- };
+     if (gameContinue === 0){
+       clearInterval(snakeInterval);
+       window.alert(`Your score was ${score}`);
+       score = 0;
+       this.x = 100;
+       this.y = 100;
+       this.xSpeed = scale;
+       this.ySpeed = 0;
+       this.tail = [ {x: 70, y: 100}, {x: 80, y: 100}, {x: 90, y: 100}, {x: 100, y: 100}];
+     }
+     snake.draw();}, speed);
+     snakeInterval;
+}
 
 window.addEventListener('click', function click(e){
-  console.log(e.target)
+  scoreUpdate.innerHTML = 'Score: ' + score;
+  gameContinue = 1;
   if (e.target === startGame){
     start();
 }
