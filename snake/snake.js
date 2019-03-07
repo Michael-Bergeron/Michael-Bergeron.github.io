@@ -7,18 +7,18 @@
   var speed = 200;
   var rows = canvas.width/scale;
   var rows = canvas.height/scale;
+  var scoreIncrease;
   var score = 0;
   var total = 4;
+  var mode = ""
 
   var snake;
 
-
-
   function Snake () {
-    this.x = 100;
     this.y = 100;
-    this.xSpeed = scale;
+    this.x = 100;
     this.ySpeed = 0;
+    this.xSpeed = scale;
     this.tail = [ {x: 70, y: 100}, {x: 80, y: 100}, {x: 90, y: 100}, {x: 100, y: 100}];
 
     this.draw = function() {
@@ -34,19 +34,33 @@
         this.tail[i] = this.tail[i+1];
      }
 
-     this.tail[score+3] = { x: this.x, y: this.y};
+     this.tail[total-1] = { x: this.x, y: this.y};
 
      this.x += this.xSpeed;
      this.y += this.ySpeed;
 
      if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0){
-       score = 0;
-       scoreUpdate.innerHTML = 'Score: ' + score;
-       this.x = 100;
-       this.y = 100;
-       this.xSpeed = scale;
-       this.ySpeed = 0;
-       this.tail = [ {x: 70, y: 100}, {x: 80, y: 100}, {x: 90, y: 100}, {x: 100, y: 100}];
+       if (document.getElementById('walls').checked){
+         score = 0;
+         scoreUpdate.innerHTML = 'Score: ' + score;
+         this.x = 100;
+         this.y = 100;
+         this.xSpeed = scale;
+         this.ySpeed = 0;
+         this.tail = [ {x: 70, y: 100}, {x: 80, y: 100}, {x: 90, y: 100}, {x: 100, y: 100}];
+       }
+     }
+     if (this.x >= canvas.width && document.getElementById('noWalls').checked){
+       this.x = 0;
+     }
+     else if(this.x < 0 && document.getElementById('noWalls').checked){
+       this.x = canvas.width- 20;
+     }
+     else if(this.y >= canvas.height && document.getElementById('noWalls').checked){
+       this.y = 0;
+     }
+     else if(this.y < 0 && document.getElementById('noWalls').checked){
+       this.y = canvas.height-20;
      }
      for (let m = 0; m<this.tail.length; m++){
        if (this.x === this.tail[m].x && this.y === this.tail[m].y){
@@ -62,9 +76,10 @@
      if (snake.x == apple.x && snake.y == apple.y){
        apple.location();
        apple.draw();
-       score++;
+       score += scoreIncrease;
        scoreUpdate.innerHTML = 'Score: ' + score;
        speed = speed / 2;
+       total++;
        console.log(speed)
      }
    }
@@ -88,12 +103,15 @@
  function start() {
    if (document.getElementById('pickSlow').checked){
      speed = 200;
+     scoreIncrease = 1;
    }
    else if(document.getElementById('pickFast').checked){
      speed = 50;
+     scoreIncrease = 3;
    }
    else if(document.getElementById('pickNormal').checked){
      speed = 100;
+     scoreIncrease = 2;
    }
    snake = new Snake();
    apple = new Apple();

@@ -8,11 +8,20 @@
   <body>
     <canvas class="canvas" width='600' height='600' style="background-color: black"></canvas>
     <div id='score'>Score: 0</div>
-      <input id='pickSlow' type="radio" name="speed" >Slow
-      <input id='pickNormal'type="radio" name="speed" checked>Normal
-      <input id='pickFast'type="radio" name="speed" >Fast
+      <input id='pickSlow' type="radio" name="speed" >Slow (1 point)
+      <input id='pickNormal'type="radio" name="speed" checked>Normal (2 points)
+      <input id='pickFast'type="radio" name="speed" >Fast (3 points)
+    <div></div>
+      <input id='walls' type="radio" name="walls" checked>Walls
+      <input id='noWalls' type="radio" name="walls">No Walls
+    <div></div>
       <button id='start'>Start Game</button>
 
+      <div class="leaderboard">
+        <ul>
+        </ul>
+
+      </div>
   </body>
       <script type="text/javascript" src="snake.js"></script>
 </html>
