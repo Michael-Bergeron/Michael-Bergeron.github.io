@@ -23,7 +23,9 @@
     this.tail = [ {x: 70, y: 100}, {x: 80, y: 100}, {x: 90, y: 100}, {x: 100, y: 100}];
 
     this.draw = function() {
-     ctx.fillStyle = '#FFFFFF';
+      var color = document.getElementById('color')
+      var snakeColor = color.options[color.selectedIndex].value;
+      ctx.fillStyle = snakeColor;
 
      for (k = 0; k < this.tail.length; k++){
        ctx.fillRect(this.tail[k].x, this.tail[k].y, scale, scale);
@@ -90,22 +92,26 @@
    }
   }
 
+function gameOptions() {
+  if (document.getElementById('pickSlow').checked){
+    speed = 200;
+    scoreIncrease = 1;
+  }
+  else if(document.getElementById('pickFast').checked){
+    speed = 50;
+    scoreIncrease = 3;
+  }
+  else if(document.getElementById('pickNormal').checked){
+    speed = 100;
+    scoreIncrease = 2;
+  }
+  if (document.getElementById('walls').checked){
+    scoreIncrease++;
+  }
+}
+
  function start() {
-   if (document.getElementById('pickSlow').checked){
-     speed = 200;
-     scoreIncrease = 1;
-   }
-   else if(document.getElementById('pickFast').checked){
-     speed = 50;
-     scoreIncrease = 3;
-   }
-   else if(document.getElementById('pickNormal').checked){
-     speed = 100;
-     scoreIncrease = 2;
-   }
-   if (document.getElementById('walls').checked){
-     scoreIncrease++;
-   }
+   gameOptions();
    snake = new Snake();
    apple = new Apple();
    apple.location();
@@ -118,6 +124,7 @@
        clearInterval(snakeInterval);
        window.alert(`Your score was ${score}`);
        score = 0;
+       total = 4;
        this.x = 100;
        this.y = 100;
        this.xSpeed = scale;
@@ -135,7 +142,6 @@ window.addEventListener('click', function click(e){
     start();
 }
 })
-
 
 window.addEventListener('keydown', function keyPush(e){
     switch(e.keyCode){
