@@ -146,18 +146,22 @@ window.addEventListener('click', function click(e){
 window.addEventListener('keydown', function keyPush(e){
     switch(e.keyCode){
       case 37:
+        e.preventDefault();
         snake.xSpeed = -scale * 1;
         snake.ySpeed = 0;
         break;
       case 38:
+        e.preventDefault();
         snake.xSpeed = 0;
         snake.ySpeed = 1 * -scale;
         break;
        case 39:
+        e.preventDefault();
          snake.xSpeed = 1 * scale;
          snake.ySpeed = 0;
          break;
        case 40:
+        e.preventDefault();
          snake.xSpeed = 0;
          snake.ySpeed = 1 * scale;
          break;
