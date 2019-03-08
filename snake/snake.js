@@ -3,14 +3,14 @@
   const startGame = document.getElementById('start');
   const scoreUpdate = document.getElementById('score');
   var ctx = canvas.getContext('2d');
-  var scale = 20;
+  var scale = 10;
   var speed = 200;
   var rows = canvas.width/scale;
   var rows = canvas.height/scale;
   var scoreIncrease;
   var score = 0;
   var total = 4;
-  var mode = ""
+  var mode = "";
   var gameContinue = 0;
 
   var snake;
