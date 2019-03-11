@@ -163,6 +163,7 @@ function gameOptions() {
        this.xSpeed = scale;
        this.ySpeed = 0;
        this.tail = [ {x: 70, y: 100}, {x: 80, y: 100}, {x: 90, y: 100}, {x: 100, y: 100}];
+       getScores();
      }
      snake.draw();}, speed);
      snakeInterval;
