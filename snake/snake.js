@@ -39,7 +39,7 @@
   }
 
   function saveScore() {
-    var initials = prompt('Your high score was ' + highScore, 'what are you initials?');
+    var initials = prompt('Your high score was ' + score, 'what are you initials?');
     db.collection("scores").add({
         initials: initials,
         score: score
@@ -155,7 +155,6 @@ function gameOptions() {
      snake.update();
      if (gameContinue === 0){
        clearInterval(snakeInterval);
-       var highScore = score;
        saveScore();
        score = 0;
        total = 4;
