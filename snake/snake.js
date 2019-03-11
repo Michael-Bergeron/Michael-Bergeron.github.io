@@ -15,6 +15,24 @@
 
   var snake;
 
+
+  var config = {
+    apiKey: "AIzaSyDfRdkrrnWc7-cO3QzN_aLzud6i5LzTo0o",
+    authDomain: "snake-f0160.firebaseapp.com",
+    databaseURL: "https://snake-f0160.firebaseio.com",
+    projectId: "snake-f0160",
+    storageBucket: "snake-f0160.appspot.com",
+    messagingSenderId: "173916570863"
+  };
+
+  firebase.initializeApp(config);
+  var db = firebase.firestore();
+
+db.collection('scores').get().then((querySnapshot) => {
+      console.log(scores)
+  });
+
+
   function Snake () {
     this.y = 100;
     this.x = 100;
@@ -142,6 +160,28 @@ window.addEventListener('click', function click(e){
     start();
 }
 })
+
+fetch('https://us-central1-snake-game-1bf7b.cloudfunctions.net/top15scores')
+  .then(res => res.json())
+  .then(data => leaderboardBuild(data));
+
+function leaderboardBuild(arr){
+    var leaderboard = document.getElementById("leaderboard");
+    for(i=0; i< arr.length; i++){
+        var columnDiv = document.createElement("div");
+        leaderboard.append(columnDiv);
+        leaderboard.children[i].setAttribute("id","column-" + (i+1));
+        for(j=0; j<arr[i].length; j++){
+            var rowSpan = document.createElement("Span");
+            var columnSet = document.getElementById("column-" + (i+1));
+            columnSet.append(rowSpan);
+            columnSet.children[j].setAttribute("id", "span" + (((i+1)*10) + (j+1)));
+            var rowSet = document.getElementById("span" + (((i+1)*10) + (j+1)));
+            rowSet.innerHTML = arr[i][j];
+            rowSet.classList.add("score-block");
+        }
+    }
+}
 
 window.addEventListener('keydown', function keyPush(e){
     switch(e.keyCode){

@@ -1,3 +1,20 @@
 .canvas {
   background-color: black
 }
+
+#leaderboard{
+		background-color:#D29F13;
+		position: relative;
+		width: 100%;
+		float: none;
+		height: 700px;
+		margin: 10px auto;
+		color: #3C1053;
+		font-size: 40px;
+	}
+  .score-block{
+      display:inline-block;
+      width: 50%;
+      margin: 0 auto;
+      text-align: center;
+  }
