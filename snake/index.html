@@ -6,26 +6,35 @@
     <title></title>
   </head>
   <body>
+    <h1>Snake Game</h1>
     <canvas class="canvas" width='600' height='600'></canvas>
-    <div id='score'>Score: 0</div>
-      <input id='pickSlow' type="radio" name="speed" >Slow (1 point)
-      <input id='pickNormal'type="radio" name="speed" checked>Normal (2 points)
-      <input id='pickFast'type="radio" name="speed" >Fast (3 points)
-    <div></div>
-      <input id='walls' type="radio" name="walls" checked>Walls (points + 1)
-      <input id='noWalls' type="radio" name="walls">No Walls
-    <div></div>
-      <button id='start'>Start Game</button>
-      <div>Snake Color</div>
-        <select id="color" name="">
-          <option value="White">White</option>
-          <option value="Yellow">Yellow</option>
-          <option value="Blue">Blue</option>
-          <option value="Pink">Pink</option>
-        </select>
+    <div class="container">
+      <div id='score'>Score: 0</div>
+      <div class="speedContainer">
+        <input id='pickSlow' type="radio" name="speed" >Slow (1 point)
+        <input id='pickNormal'type="radio" name="speed" checked>Normal (2 points)
+        <input id='pickFast'type="radio" name="speed" >Fast (3 points)
+      </div>
 
-        </select>
-      <div id="leaderboard"></div>
+      <div class="wallsOption">
+        <input id='walls' type="radio" name="walls" checked>Walls (points + 1)
+        <input id='noWalls' type="radio" name="walls">No Walls
+      </div>
+
+        <div class="snakeColor">Snake Color</div>
+          <select id="color" name="">
+            <option value="White">White</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Blue">Blue</option>
+            <option value="Pink">Pink</option>
+          </select>
+          <div>
+                  <button id='start'>Start Game</button>
+          </div>
+      </div>
+
+      </div>
+      <div id="leaderboard">LeaderBoard:</div>
       <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
       <script type="text/javascript" src="snake.js"></script>
