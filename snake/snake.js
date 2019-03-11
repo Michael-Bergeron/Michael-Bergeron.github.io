@@ -28,10 +28,25 @@
   firebase.initializeApp(config);
   var db = firebase.firestore();
 
-db.collection('scores').get().then((querySnapshot) => {
-      console.log(scores)
-  });
+  function getScores() {
+    db.collection("scores").get()
+        .then(scores => {
+            var data = [];
+            scores.forEach(score =>
+                data.push([score.data().initials, score.data().score]));
+      return data.sort((a,b) => b[1]-a[1]);
+    }).then(sortedArr => leaderboardBuild(sortedArr))
+  }
 
+  function saveScore() {
+    var initials = prompt('Your high score was ' + highScore, 'what are you initials?');
+    db.collection("scores").add({
+        initials: initials,
+        score: score
+    })
+  }
+
+  getScores();
 
   function Snake () {
     this.y = 100;
@@ -140,7 +155,8 @@ function gameOptions() {
      snake.update();
      if (gameContinue === 0){
        clearInterval(snakeInterval);
-       window.alert(`Your score was ${score}`);
+       var highScore = score;
+       saveScore();
        score = 0;
        total = 4;
        this.x = 100;
@@ -160,10 +176,6 @@ window.addEventListener('click', function click(e){
     start();
 }
 })
-
-fetch('https://us-central1-snake-game-1bf7b.cloudfunctions.net/top15scores')
-  .then(res => res.json())
-  .then(data => leaderboardBuild(data));
 
 function leaderboardBuild(arr){
     var leaderboard = document.getElementById("leaderboard");
