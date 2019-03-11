@@ -34,8 +34,8 @@
             var data = [];
             scores.forEach(score =>
                 data.push([score.data().initials, score.data().score]));
-      return data.sort((a,b) => b[1]-a[1]);
-    }).then(sortedArr => leaderboardBuild(sortedArr))
+                return data.sort((a,b) => b[1]-a[1]).slice(0, 15);
+        }).then(sortedArr => leaderboardBuild(sortedArr))
   }
 
   function saveScore() {
