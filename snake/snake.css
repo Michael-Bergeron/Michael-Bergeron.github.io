@@ -1,5 +1,13 @@
 body {
-  background-color: #eee;
+  background-color: darkgrey;
+}
+
+h1 {
+  background-color: #0074D9;
+  color: #7FDBFF;
+  width: 600px;
+  text-align: center;
+  font-size: 40px;
 }
 
 .container {
@@ -32,15 +40,15 @@ body {
 }
 
 .canvas {
-  background-color: black
+  background-color: black;
 }
 
 #leaderboard{
   position: absolute;
   left: 700px;
-  top: 50px;
+  top: 90px;
 	background-color: #0074D9;
-	width: 50%;
+	width: 30%;
 	height: 750px;
 	margin: 10px;
 	color: #7FDBFF;
