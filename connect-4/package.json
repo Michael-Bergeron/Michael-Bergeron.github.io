@@ -1,32 +1,31 @@
 {
-  "name": "challenge_4",
+  "name": "hratx42-mini-apps-1",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "start": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michael-Bergeron/hratx42-mini-apps-1.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "webpack": "^4.35.0",
-    "webpack-cli": "^3.3.5"
+  "bugs": {
+    "url": "https://github.com/Michael-Bergeron/hratx42-mini-apps-1/issues"
   },
+  "homepage": "https://github.com/Michael-Bergeron/hratx42-mini-apps-1#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "mysql": "^2.17.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "babel-watch": "^7.0.0"
   }
 }
