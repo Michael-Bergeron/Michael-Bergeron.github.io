@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+		<link rel="stylesheet" href="app.css">
+    <title>Document</title>
+</head>
+<body>
+    <table id = "table">
+        <tr>
+            <td style = "border-bottom: 3px solid black; border-right: 3px solid black;" class = 'square' id = "top1"></td>
+            <td style = "border-bottom: 3px solid black; border-right: 3px solid black;" class = 'square' id = "top2"></td> 
+            <td style = "border-bottom: 3px solid black;"" class = 'square' id = "top3"></td>
+          </tr>
+          <tr>
+            <td style = "border-bottom: 3px solid black; border-right: 3px solid black;"" class = 'square' id = "mid1"></td>
+            <td style = "border-bottom: 3px solid black; border-right: 3px solid black;"" class = 'square' id = "mid2"></td> 
+            <td style = "border-bottom: 3px solid black;"" class = 'square' id = "mid3"></td>
+          </tr>
+          <tr>
+            <td style = "border-right: 3px solid black;"" class = 'square' id = "bot1"></td>
+            <td style = "border-right: 3px solid black;"" class = 'square' id = "bot2"></td> 
+            <td class = 'square' id = "bot3" style = ""></td>
+          </tr>
+    </table>
+
+    <div id = 'stats' style = "border: 1px solid black; width: 200px">
+        <div id = 'scoreboard1'>Player 1 wins: 0</div>
+        <div id = 'scoreboard2'>Player 2 wins: 0</div>
+				<div id = 'totalGames'>Total Games Played: 0</div>
+		</div>
+		<button id ="rotate">Rotate: Enabled</button>
+		<div id = 'player'>
+			<div id = 'currentPlayer' >Player 1s Turn</div>		
+			<div>
+					<input id = 'player1Name' type="text" value="Player 1">
+					<input id = 'player2Name' type="text" value="Player 2">
+				</div>
+		</div>
+
+		<div id ='restartHolder'>
+				<div id = 'winner'></div>
+				<button id ="restart">Restart</button>
+    </div>
+    
+    <div id = "scoreboard">
+      <p id = 'scoreboard1'></p>
+    </div>
+		
+</body>
+</html>
