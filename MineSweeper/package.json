@@ -24,7 +24,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "materialize-css": "^1.0.0",
-    "mongoose": "^5.5.14",
+    "mongoose": "^5.7.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-materialize": "^3.3.4"
